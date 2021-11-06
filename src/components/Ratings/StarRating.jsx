@@ -4,11 +4,13 @@ import Star from "./Star";
 
 const createArray = (length) => [...Array(length)];
 
-const StarRating = ({ totalStars = 5 }) => {
+const StarRating = (props) => {
   const [selectedStars, setSelectedStars] = useState(0);
+  const { totalStars } = props;
+  console.log(props);
 
   return (
-    <>
+    <div style={{ display: "flex", ...props.style }}>
       {createArray(totalStars).map((n, i) => (
         <Star
           key={i}
@@ -17,9 +19,9 @@ const StarRating = ({ totalStars = 5 }) => {
         />
       ))}
       <p>
-        {selectedStars} of {totalStars} stars.
+        {selectedStars} out of {totalStars}.
       </p>
-    </>
+    </div>
   );
 };
 

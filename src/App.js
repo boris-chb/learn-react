@@ -1,11 +1,12 @@
-import "./App.css";
-
-import StarRating from "./components/StarRating";
+import React, { useState } from "react";
+import colorData from "./color-data.json";
+import ColorList from "./components/Colors/ColorList";
 
 function App() {
+  const [colors] = useState(colorData);
   return (
     <>
-      <StarRating />
+      <ColorList colors={colors} />
     </>
   );
 }
